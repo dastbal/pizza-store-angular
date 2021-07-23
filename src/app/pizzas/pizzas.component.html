@@ -1,0 +1,8 @@
+<div class="pizza-grid" >
+
+  <app-pizza
+   *ngFor="let pizza of pizzas"
+   (pizzaClicked)="clickPizza($event)"
+    [pizza]="pizza">
+  </app-pizza>
+</div>
