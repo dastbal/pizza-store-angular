@@ -1,6 +1,29 @@
-<nav>
-  <a  routerLink="/home" routerLinkActive="active">Home</a>
-  <a routerLink="/pizza" routerLinkActive="active"> Pizzas</a>
-  <a routerLink="/contact" routerLinkActive="active"> Contactos</a>
+<mat-toolbar color="primary">
+<mat-toolbar-row>
+  <h1>David's Pizza</h1>
 
-</nav>
+</mat-toolbar-row >
+<mat-toolbar-row class="row between-xs">
+
+    <nav >
+      <span>
+
+        <a mat-button  routerLink="/home" routerLinkActive="active">Home</a>
+        <a mat-button routerLink="/pizza" routerLinkActive="active"> Pizzas</a>
+        <a mat-button routerLink="/contact" routerLinkActive="active"> Contactos</a>
+      </span>
+      <span class="example-spacer"></span>
+      <span>
+
+        <a class="icon-end"  mat-raised-button matBadge="2" matBadgeColor="warn" >
+          <mat-icon  class="example-icon" aria-hidden="false" aria-label="Example shopping_cart icon"> shopping_cart</mat-icon>
+        </a>
+      </span>
+
+  </nav>
+
+
+</mat-toolbar-row >
+</mat-toolbar >
+
+

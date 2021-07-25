@@ -1,8 +1,12 @@
 nav >a{
-  padding: 1rem 2rem;
+  padding: 0.3rem 1rem;
   text-decoration: none;
 }
+.icon-end{
+  position: absolute;
+  right: 1rem;
+}
+
 nav >a.active{
-  padding: 1rem 2rem;
-  text-decoration: none;
+
 font-weight: bold;}

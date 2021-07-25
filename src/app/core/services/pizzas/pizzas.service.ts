@@ -1,52 +1,33 @@
 import { isNgTemplate } from '@angular/compiler';
+import { HttpClient} from '@angular/common/http';
 import { Injectable, IterableDiffers } from '@angular/core';
 import {Pizza} from '../../../pizza.model';
+import {environment} from '../../../../environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class PizzasService {
-  pizzas : Pizza[] =[
-
-    {
-      id:'1',
-      image: 'assets/images/pizza.jpg',
-      title: 'Hawaiana',
-      price: 10,
-      description :'Jamón y piña acaramelada',
-    },
-    {
-      id:'2',
-      image: 'assets/images/pizza.jpg',
-      title: 'Tocino',
-      price: 10,
-      description :'Jamón y piña acaramelada',
-    },
-    {
-      id:'3',
-      image: 'assets/images/pizza.jpg',
-      title: 'Pepperoni',
-      price: 10,
-      description :'Jamón y piña acaramelada',
-    },
-    {
-      id:'4',
-      image: 'assets/images/pizza.jpg',
-      title: 'Jamón',
-      price: 10,
-      description :'Jamón y piña acaramelada',
-    },
-
-  ];
 
 
 
-  constructor() { }
+  constructor(
+    private http:HttpClient
+  ) { }
   getAllPizzas(){
-    return this.pizzas
+    return this.http.get<Pizza[]>( `${environment.url_api}/products`);
   }
-  getPizza(id:string):Pizza {
-    return this.pizzas.find( pizza => id === pizza.id)
+  getPizza(id:string) {
+    return this.http.get<Pizza>(`${environment.url_api}/products/${id}`);
+  }
+  createPizza(pizza: Pizza){
+    return this.http.post(`${environment.url_api}/products`, pizza);
+  }
+  updatePizza(id: string , changes: Partial<Pizza>){
+    return this.http.put(`${environment.url_api}/products/${id}`, changes);
+  }
+  deletePizza(id:string) {
+    return this.http.delete(`${environment.url_api}/products/${id}`);
   }
 }

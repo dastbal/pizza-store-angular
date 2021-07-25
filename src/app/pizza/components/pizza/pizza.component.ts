@@ -1,5 +1,5 @@
 import {Component ,Input, Output ,EventEmitter,OnChanges ,SimpleChanges } from '@angular/core'
-import {Pizza} from '../pizza.model'
+import {Pizza} from '../../../pizza.model'
 
 @Component({
   selector: 'app-pizza',
