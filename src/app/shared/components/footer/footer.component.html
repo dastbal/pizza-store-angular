@@ -1,8 +1,40 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <p>David's Pizz</p>
-   <p>Design by David Balladares</p>
+<footer>
+
+  <div class="row" >
+
+    <div class="col-xs-12
+                col-sm-6
+
+                col-lg-6">
+                <div class="box">
+
+                  <p>David's Pizza</p>
+                  <p>Design by David Balladares</p>
+                </div>
+    </div>
+    <div class="col-xs-12
+    col-sm-6
+
+                col-lg-6">
+                <div class="box">
+                  <h3>Contacto</h3>
+                  <mat-form-field >
+
+                    <input matInput placeholder="Ejemplo@gmail.com" type="email" [formControl]="emailField" >
+                  </mat-form-field>
+                  <button mat-raised-button [disabled]="emailField.invalid" (click)="sendEmail()">Enviar</button>
+                </div>
+              </div>
+
+            </div>
 
 
-  </mat-toolbar-row >
-  </mat-toolbar >
+<div class="row" >
+  <div class="col-xs-12">
+    <div class="box">
+      <p>Design by David Balladares</p>
+    </div>
+  </div>
+</div>
+
+</footer>

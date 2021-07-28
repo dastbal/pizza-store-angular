@@ -15,7 +15,7 @@
       <span class="example-spacer"></span>
       <span>
 
-        <a class="icon-end"  mat-raised-button matBadge="2" matBadgeColor="warn" >
+        <a routerLink="/order" class="icon-end"  mat-raised-button [matBadge]="total$ | async" matBadgeColor="warn" >
           <mat-icon  class="example-icon" aria-hidden="false" aria-label="Example shopping_cart icon"> shopping_cart</mat-icon>
         </a>
       </span>

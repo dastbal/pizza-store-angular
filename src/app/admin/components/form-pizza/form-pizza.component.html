@@ -1,0 +1,52 @@
+<form [formGroup]="form" action=""  (ngSubmit)="savePizza($event)">
+  <mat-card>
+
+    <mat-card-header>
+      <mat-card-title>Pizza</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-xs">
+
+          <mat-form-field>
+            <input placeholder="Id" type="text" formControlName="id" matInput>
+          </mat-form-field>
+        </div>
+      </div>
+          <div class="row">
+            <div class="col-xs">
+          <mat-form-field>
+            <input placeholder="Tile" type="text" formControlName="title" matInput>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <input placeholder="Price" type="number" formControlName="price" matInput>
+          </mat-form-field>
+          <mat-error  *ngIf="priceField.hasError('price_invalid')"> Esta pizza es muy cara</mat-error>
+          <mat-error   *ngIf="priceField.hasError('required') && priceField.dirty"> Este campo es requerido</mat-error>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+
+      <mat-form-field>
+        <textarea placeholder="text" formControlName="description" matInput></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-xs">
+          <img  *ngIf="(image$ | async) as image  " [src]="image">
+      <input type="file" (change)="uploadFile($event)" >
+    </div>
+  </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button [disabled]="form.invalid" mat-raised-button type="submit" color="primary"> Guardar</button>
+    </mat-card-actions>
+</mat-card>
+</form>

@@ -1,0 +1,37 @@
+<mat-stepper linear >
+  <mat-step>
+    <ng-template matStepLabel> Su Orden</ng-template>
+    <h2>My Pedido</h2>
+    <div *ngIf="(pizzas$ | async  ) as pizzas">
+      <mat-error *ngIf="pizzas.length===0"> No HayProductos</mat-error>
+      <div class="row" *ngFor="let pizza of pizzas">
+        <div class="col-xs-12 col-sm-4 col-md-4">
+          <div class="box">
+            <img [src]="pizza.image" [alt]="pizza.title">
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4">
+          <div class="box">
+            {{pizza.title}}
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4">
+          <div class="box">
+            {{pizza.price | currency}}
+          </div>
+        </div>
+
+        </div>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel> Datos Personales</ng-template>
+    <h2>Contenido</h2>
+  </mat-step>
+    <mat-step>
+      <ng-template matStepLabel> Pagar</ng-template>
+      <h2>Contenido</h2>
+    </mat-step>
+  </mat-stepper>

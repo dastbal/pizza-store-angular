@@ -20,8 +20,11 @@ const routes: Routes = [
       },
       {
         path: 'contact',
-        canActivate: [AdminGuard],
         loadChildren: ( ) => import('./contact/contact.module').then(m=> m.ContactModule)
+      },
+      {
+        path: 'order',
+        loadChildren: ( ) => import('./order/order.module').then(m=> m.OrderModule)
       },
       {
         path: 'pizza',
@@ -32,7 +35,12 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [AdminGuard],
     loadChildren: ( ) => import('./admin/admin.module').then(m=> m.AdminModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: '**',// no hubo match
